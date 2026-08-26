@@ -1,0 +1,93 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-paper text-body font-sans antialiased;
+  }
+
+  h1,
+  h2,
+  h3 {
+    @apply font-display;
+    font-variation-settings: 'SOFT' 0, 'WONK' 1;
+    letter-spacing: -0.015em;
+  }
+
+  :focus-visible {
+    @apply outline-none ring-2 ring-ink ring-offset-2 ring-offset-paper;
+  }
+
+  ::selection {
+    @apply bg-acid text-ink;
+  }
+}
+
+@layer components {
+  /* Deadline rail: a 3px edge that encodes how much time is left. The one
+     piece of decoration in the app that carries information. */
+  .rail {
+    @apply relative pl-4;
+  }
+
+  .rail::before {
+    content: '';
+    @apply absolute left-0 top-0.5 bottom-0.5 w-[3px] rounded-full bg-body-faint;
+  }
+
+  .rail-open::before {
+    @apply bg-moss;
+  }
+  .rail-soon::before {
+    @apply bg-amberish;
+  }
+  .rail-over::before {
+    @apply bg-flame;
+  }
+
+  /* Ledger heading: a mono index number above a serif title. Used to open
+     every major section so the page reads like a record, not a template. */
+  .ledger-index {
+    @apply font-mono text-xs tracking-[0.2em] text-body-faint uppercase;
+  }
+
+  /* Ticket stub notch, used on assignment cards. */
+  .stub {
+    @apply relative;
+  }
+
+  .stub::before,
+  .stub::after {
+    content: '';
+    @apply absolute h-4 w-4 rounded-full bg-paper;
+    left: -0.5rem;
+  }
+
+  .stub::before {
+    top: -0.5rem;
+  }
+  .stub::after {
+    bottom: -0.5rem;
+  }
+
+  .hairline {
+    @apply border-b border-dashed border-rule;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
