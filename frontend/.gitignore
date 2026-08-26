@@ -1,0 +1,15 @@
+# Node & Build Artifacts
+node_modules/
+dist/
+dist-ssr/
+*.tsbuildinfo
+coverage/
+
+# Local Config and Secrets
+.env
+.env.local
+*.local
+
+# System & OS Files
+.DS_Store
+Thumbs.db

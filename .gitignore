@@ -1,3 +1,14 @@
+# .NET & IDEs
+bin/
+obj/
+*.user
+*.userosv
+*.suo
+*.sln.docstates
+.vs/
+.idea/
+.vscode/
+
 # Node & Build Artifacts
 node_modules/
 dist/
@@ -9,6 +20,11 @@ coverage/
 .env
 .env.local
 *.local
+appsettings.Local.json
+
+# Uploaded Files (demo uploads, preserve directory structure)
+backend/AssignmentSubmissionManagementSystem.API/wwwroot/uploads/**
+!backend/AssignmentSubmissionManagementSystem.API/wwwroot/uploads/.gitkeep
 
 # System & OS Files
 .DS_Store
